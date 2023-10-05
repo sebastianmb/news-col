@@ -1,9 +1,11 @@
-
+import {NavBar} from './NavBar'
+import logo from '../images/logo.svg'
 
 export const Header = () => {
   return (
-    <header>
-      <h1 className="bg-red-500">Esto es el header</h1>
+    <header className='bg-red-400'>
+      <img src={logo} alt="Logo"/>
+      <NavBar/>
     </header>
   )
 }
