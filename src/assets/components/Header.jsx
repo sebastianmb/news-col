@@ -3,7 +3,7 @@ import logo from '../images/logo.svg'
 
 export const Header = () => {
   return (
-    <header className='bg-red-400'>
+    <header className='bg-red-400 flex place-content-between'>
       <img src={logo} alt="Logo"/>
       <NavBar/>
     </header>
