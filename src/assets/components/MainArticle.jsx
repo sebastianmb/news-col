@@ -12,7 +12,7 @@ export const MainArticle = () => {
         </picture>
 
         <div className='sm:flex'>
-          <div className='flex-1 py-6'>
+          <div className='flex-1 py-6 pr-2'>
             <h2 className='text-[40px] font-bold sm:text-[58px] leading-none'> The Bright Future of Web 3.0?</h2>
           </div>
           <div className='flex-1 pt-9'>

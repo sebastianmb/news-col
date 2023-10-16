@@ -1,18 +1,20 @@
 import { Header } from "./assets/components/Header"
 import { MainArticle } from "./assets/components/MainArticle"
 import { NewContainer } from "./assets/components/NewContainer"
-
+import { ArticlesContainer } from "./assets/components/ArticlesContainer"
 
 function App() {
-  
+
 
   return (
     <main className="px-4 pt-6">
-      <Header/>
+      <Header />
       <div className="sm:flex sm:gap-8">
-      <MainArticle/>
-      <NewContainer/>
+        <MainArticle />
+        <NewContainer />
+
       </div>
+      <ArticlesContainer />
     </main>
   )
 }
