@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom"
+import { Outlet, NavLink, Link } from "react-router-dom"
 import Menu from "../images/icon-menu.svg"
 
 
@@ -10,7 +10,7 @@ export const NavBar = () => {
                 <Link to="/">Home</Link>
             </li>
             <li>
-                <Link to="/">New</Link>
+                <NavLink to="/new">New</NavLink>
             </li>
             <li>
                 <Link to="/">Popular</Link>
