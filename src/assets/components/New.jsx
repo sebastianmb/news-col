@@ -1,5 +1,5 @@
 import { Header } from "./Header"
-import { MainArticle } from "./MainArticle"
+import { ArticlesContainer } from "./ArticlesContainer"
 
 
 export const New = () => {
@@ -18,6 +18,8 @@ export const New = () => {
             <button className="bg-SoftRed w-[185px] h-[48px] uppercase text-OffWhite hover:bg-VeryDarkBlue">Read more</button>
           </div>
         </div>
+    
+    <ArticlesContainer/>
 
   </main>
   )
