@@ -19,12 +19,7 @@ export const NavBar = () => {
                 <li>
                     <NavLink to="/new">New</NavLink>
                 </li>
-                <li>
-                    <Link to="/">Popular</Link>
-                </li>
-                <li>
-                    <Link to="/">Trending</Link>
-                </li>
+                
                 <li>
                     <button onClick={toggleMenu}>Categorias</button>
                     {menuVisible && (
