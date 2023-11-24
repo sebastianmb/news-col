@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'noticias_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'noticias_project',
+        'USER': 'news_col',
+        'PASSWORD': 'news_col',
+        'HOST': 'localhost',  # O la dirección de tu servidor MySQL
+        'PORT': '3306',       # Puerto predeterminado de MySQL
     }
 }
 
