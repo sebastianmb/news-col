@@ -1,7 +1,25 @@
 import imageMobile from '../images/image-web-3-mobile.jpg'
 import imageDesktop from '../images/image-web-3-desktop.jpg'
+import React, { useState, useEffect } from 'react';
 
 export const MainArticle = () => {
+  
+  const [newsTitle, setNewsTitle] = useState('');
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/noticias/1')
+      .then((response) => response.json())
+      .then((data) => {
+        // Establecer el título de la noticia en el estado
+        setNewsTitle(data.title);
+      })
+      .catch((error) => {
+        console.error('Error al obtener la noticia:', error);
+      });
+  }, []);
+
+
+
   return (
     <section className='mb-12'>
       <div>
