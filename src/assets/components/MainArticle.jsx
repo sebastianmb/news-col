@@ -5,14 +5,15 @@ import React, { useState, useEffect } from 'react';
 export const MainArticle = () => {
 
   const [newsInfo, setNewsInfo] = useState(null);
-
+  const global="http://127.0.0.1:8000/media/"
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/noticias/7')
+    fetch('http://127.0.0.1:8000/api/noticias/10')
       .then((response) => response.json())
       .then((data) => {
         // Establecer el título de la noticia en el estado
         setNewsInfo(data.noticia);
         console.error('Se llega hasta la noticia:', data);
+        
 
 
       })
@@ -27,15 +28,15 @@ export const MainArticle = () => {
     <section className='mb-12'>
       {newsInfo && newsInfo.image && (
         <div>
-          {console.log('newsInfo:', newsInfo)}
-          {console.log('newsInfo.image:', newsInfo.image)}
-          {console.log('Image URL:', newsInfo.image.get_absolute_url() || urlresolvers.urljoin(settings.MEDIA_URL, newsInfo.image.name))}
+
+          {console.log('newsInfo.get_image_url:', newsInfo.get_image_url)}
+          
           <picture>
-            <source media="(max-width: 640px)" srcSet={imageMobile} />
-            <source media="(min-width: 641px)" srcSet={imageDesktop} />
-            {newsInfo && (
-              <img src={imageDesktop} alt='Articulo principal imagen' />
-            )}
+            <source media="(max-width: 640px)" srcSet={newsInfo.get_image_url} />
+            <source media="(min-width: 641px)" srcSet={newsInfo.get_image_url} />
+            
+            <img src={global + newsInfo.image} alt='Articulo principal imagen' />
+            
           </picture>
 
           <div className='sm:flex'>
