@@ -46,7 +46,7 @@ export const MainArticle = () => {
             <div className='flex-1 pt-9'>
               <p className='text-[13px] mb-10 sm:text-[15px]'>{newsInfo.content}
               </p>
-              <button className="bg-SoftRed w-[185px] h-[48px] uppercase text-OffWhite hover:bg-VeryDarkBlue">Read more</button>
+              <button className="bg-SoftRed w-[185px] h-[48px] uppercase text-OffWhite hover:bg-VeryDarkBlue" onClick={()=> window.location.href = `/new?id=${news.id}`}>Read more</button>
             </div>
           </div>
         </div>
