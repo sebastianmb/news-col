@@ -1,11 +1,13 @@
 import imageMobile from '../images/image-web-3-mobile.jpg'
 import imageDesktop from '../images/image-web-3-desktop.jpg'
 import React, { useState, useEffect } from 'react';
+import { Outlet,Link } from "react-router-dom";
+
 
 export const MainArticle = () => {
 
   const [newsInfo, setNewsInfo] = useState(null);
-  const global="http://127.0.0.1:8000/media/"
+  const global = "http://127.0.0.1:8000/media/"
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/noticias/10')
       .then((response) => response.json())
@@ -13,7 +15,7 @@ export const MainArticle = () => {
         // Establecer el título de la noticia en el estado
         setNewsInfo(data.noticia);
         console.error('Se llega hasta la noticia:', data);
-        
+
 
 
       })
@@ -30,13 +32,13 @@ export const MainArticle = () => {
         <div>
 
           {console.log('newsInfo.get_image_url:', newsInfo.get_image_url)}
-          
+
           <picture>
             <source media="(max-width: 640px)" srcSet={newsInfo.get_image_url} />
             <source media="(min-width: 641px)" srcSet={newsInfo.get_image_url} />
-            
+
             <img src={global + newsInfo.image} alt='Articulo principal imagen' />
-            
+
           </picture>
 
           <div className='sm:flex'>
@@ -46,7 +48,17 @@ export const MainArticle = () => {
             <div className='flex-1 pt-9'>
               <p className='text-[13px] mb-10 sm:text-[15px]'>{newsInfo.content}
               </p>
-              <button className="bg-SoftRed w-[185px] h-[48px] uppercase text-OffWhite hover:bg-VeryDarkBlue" onClick={()=> window.location.href = `/new?id=${news.id}`}>Read more</button>
+              <button
+                className="bg-SoftRed w-[185px] h-[48px] uppercase text-OffWhite hover:bg-VeryDarkBlue"
+              >
+                <Link
+                  to="/new"
+                  state={{ id: newsInfo.id }}
+                >
+                  Read more
+                </Link>
+                <Outlet />
+              </button>
             </div>
           </div>
         </div>
