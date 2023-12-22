@@ -55,7 +55,7 @@ export const MainArticle = () => {
                 <button
                   className="bg-SoftRed w-[185px] h-[48px] uppercase text-OffWhite hover:bg-VeryDarkBlue"
                 >
-                  <Link to='/new' >Read more</Link>
+                  <Link to={`/new/${id}`} >Read more</Link>
                 </button>
               </div>
             </div>

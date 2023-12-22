@@ -1,13 +1,13 @@
 import { Header } from "./Header"
 import { ArticlesContainer } from "./ArticlesContainer"
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export const New = () => {
   
   const [news, setNews] = useState(null);
-  const location = useLocation();
-  const id = location.state?.id;
+  const { id } = useParams();
+  
   const global="http://127.0.0.1:8000/media/"
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/noticias/${id}`)
@@ -15,7 +15,7 @@ export const New = () => {
       .then((data) => {
         // Establecer el título de la noticia en el estado
         setNews(data.noticia);
-        console.error('Se conecta la noticia:', data);
+        console.error('Se conecta la noticia componente New:', id);
         
 
 
@@ -33,7 +33,7 @@ export const New = () => {
     <Header />
     <div className='sm:flex'>
           <div className='flex-1 py-6 pr-2'>
-            <h2 className='text-[40px] font-bold sm:text-[58px] leading-none'> Hola</h2>
+            <h2 className='text-[40px] font-bold sm:text-[58px] leading-none'> {news.title}</h2>
           </div>
           <div className='flex-1 pt-9'>
             <p className='text-[13px] mb-10 sm:text-[15px]'>We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people.
