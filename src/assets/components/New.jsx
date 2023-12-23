@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 export const New = () => {
-  
+
   const [news, setNews] = useState(null);
   const { id } = useParams();
-  
-  const global="http://127.0.0.1:8000/media/"
+
+  const global = "http://127.0.0.1:8000/media/"
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/noticias/${id}`)
       .then((response) => response.json())
@@ -16,7 +16,7 @@ export const New = () => {
         // Establecer el título de la noticia en el estado
         setNews(data.noticia);
         console.error('Se conecta la noticia componente New:', id);
-        
+
 
 
       })
@@ -29,9 +29,17 @@ export const New = () => {
 
   return (
     <main className="px-4 pt-6">
-            
-    <Header />
-    <div className='sm:flex'>
+
+      <Header />
+      <div>
+        <picture>
+          <source media="(max-width: 640px)" srcSet={newsInfo.get_image_url} />
+          <source media="(min-width: 641px)" srcSet={newsInfo.get_image_url} />
+
+          <img src={global + newsInfo.image} alt='Articulo principal imagen' />
+
+        </picture>
+        <div className='sm:flex'>
           <div className='flex-1 py-6 pr-2'>
             <h2 className='text-[40px] font-bold sm:text-[58px] leading-none'> {news.title}</h2>
           </div>
@@ -42,10 +50,10 @@ export const New = () => {
             <button className="bg-SoftRed w-[185px] h-[48px] uppercase text-OffWhite hover:bg-VeryDarkBlue">Read more</button>
           </div>
         </div>
-    
-    <ArticlesContainer/>
 
-  </main>
+        <ArticlesContainer />
+      </div>
+    </main>
   )
 }
 
