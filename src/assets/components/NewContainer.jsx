@@ -1,6 +1,30 @@
+import React, { useState, useEffect } from 'react';
+
 import { NewArticle } from "./NewArticle"
 
+
 export const NewContainer = () => {
+
+  const [newsInfo, setNewsInfo] = useState(null);
+  const [id, setId] = useState(null);
+  const global = "http://127.0.0.1:8000/media/"
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/noticias/')
+      .then((response) => response.json())
+      .then((data) => {
+        // Establecer el título de la noticia en el estado
+        setNewsInfo(data.noticias);
+        //setId(data.noticia.id);
+        console.error('Se llega hasta las noticias:', data.noticias);
+
+
+
+      })
+      .catch((error) => {
+        console.error('Error al obtener la noticia:', error);
+      });
+  }, []);
+
   return (
     <div>
       <aside className="bg-VeryDarkBlue text-OffWhite py-[28px] px-[20px]">

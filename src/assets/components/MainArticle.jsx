@@ -19,7 +19,7 @@ export const MainArticle = () => {
         // Establecer el título de la noticia en el estado
         setNewsInfo(data.noticia);
         setId(data.noticia.id);
-        console.error('Se llega hasta la noticia:', data.noticia.content);
+        //console.error('Se llega hasta la noticia:', data.noticia.content);
 
 
 
