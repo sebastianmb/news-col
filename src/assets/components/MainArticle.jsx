@@ -1,8 +1,6 @@
-import imageMobile from '../images/image-web-3-mobile.jpg'
-import imageDesktop from '../images/image-web-3-desktop.jpg'
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { New } from './New';
+
 
 
 
@@ -13,7 +11,7 @@ export const MainArticle = () => {
   const [id, setId] = useState(null);
   const global = "http://127.0.0.1:8000/media/"
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/noticias/10')
+    fetch('http://127.0.0.1:8000/api/noticias/12')
       .then((response) => response.json())
       .then((data) => {
         // Establecer el título de la noticia en el estado

@@ -8,9 +8,11 @@ import { ArticlesContainer } from "./ArticlesContainer"
 export function Home() {
 
 
+
+  
   return (
    
-      <main className="px-4 pt-6">
+      <main className="px-4 pt-6 lg:px-8">
 
         <Header />
         <div className="lg:flex lg:gap-8">
