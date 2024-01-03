@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 export const NewArticle = ({ title, text,id }) => {
   
-  
+
+
   return (
 
     <article className="h-[140px] border-b-2 border-GrayishBlue py-4 last:border-none lg:h-[160px] lg:pt-3">
