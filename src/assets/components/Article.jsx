@@ -1,9 +1,14 @@
 
 export const Article = ({ img, number, title, text }) => {
+
+  const global = "http://127.0.0.1:8000/media/"
+  console.log(img)
+
   return (
+    
     <article className="flex h-[162px] md:w-[343px] md:flex-grow">
       <div className="w-[100px] flex-none">
-        <img src={img} alt="" />
+        <img src={global + img} alt="" />
       </div>
       <div className="pl-6">
         <p className="text-GrayishBlue text-3xl mb-[18px] font-bold">{number}</p>

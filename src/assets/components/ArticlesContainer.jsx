@@ -23,6 +23,7 @@ export const ArticlesContainer = () => {
 
                 // Establecer el estado con las tres noticias aleatorias
                 setNewsInfo(randomThreeNews);
+                console.log(newsInfo)
             })
             .catch((error) => {
                 console.error('Error al obtener la noticia:', error);
@@ -36,7 +37,7 @@ export const ArticlesContainer = () => {
             {newsInfo && newsInfo.map((article, index) => (
                 <Article
                     key={index} // Agrega una key única para cada elemento
-                    img={article.img}
+                    img={article.image}
                     number={index + 1}
                     title={article.title}
                     text={article.content}

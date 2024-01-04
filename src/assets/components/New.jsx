@@ -32,31 +32,36 @@ export const New = () => {
 
       <Header />
       {news ? (
-      <div>
-       
-        
-        <div >
-          <div className='flex-1 py-6 pr-2'>
-             <h2 className='text-[40px] font-bold sm:text-[58px] leading-none'> {news.title}</h2>
-          </div>
-          <picture>
-          <source media="(max-width: 640px)" srcSet={news.get_image_url} />
-          <source media="(min-width: 641px)" srcSet={news.get_image_url} />
+        <div>
+          <div className='max-w-4xl mx-auto flex'>
+            <div className='w-3/4'>
+              <h1 className='text-4xl sm:text-5xl font-bold leading-tight mb-6'>{news.title}</h1>
 
-          <img src={global + news.image} alt='Articulo principal imagen' />
+              <div className='mb-6'>
+                <img className='w-full' src={global+news.image} alt='Articulo principal imagen' />
+              </div>
 
-        </picture>
-          <div className='flex-1 pt-9'>
-            <p className='text-[13px] mb-10 sm:text-[15px]'>{news.content}
-            </p>
-            
+              <div className='text-base sm:text-lg leading-relaxed'>
+                <p>{news.content}</p>
+              </div>
+            </div>
+
+            <div className='w-1/4'>
+              {/* Aquí puedes colocar tu banner o contenido lateral */}
+              {/* Ejemplo de un banner ficticio */}
+              <div className='bg-gray-200 h-64 p-4'>
+                <h2 className='text-lg font-bold mb-2'>Anuncio</h2>
+                <p>Contenido del anuncio o banner publicitario</p>
+              </div>
+            </div>
           </div>
+
+
+
+          <ArticlesContainer />
+
         </div>
-        
-        <ArticlesContainer />
-       
-      </div>
-     ) : <p>Loading news...</p>}
+      ) : <p>Loading news...</p>}
     </main>
   )
 }
