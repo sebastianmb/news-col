@@ -33,16 +33,16 @@ export const New = () => {
 
       <Header />
       {news ? (
-        <div>
-          <div className="lg:flex lg:gap-8">
-            <div className='w-3/4'>
-              <h1 className='text-4xl sm:text-5xl font-bold leading-tight mb-6'>{news.title}</h1>
+        <div >
+          <div className="lg:flex lg:gap-8  ">
+            <div className='w-3/4  '>
+              <h1 className='text-4xl sm:text-5xl font-bold leading-tight mb-6 p-4'>{news.title}</h1>
 
               <div className='mb-6'>
-                <img className='w-full' src={global+news.image} alt='Articulo principal imagen' />
+                <img className='w-full pt-8' src={global + news.image} alt='Articulo principal imagen' />
               </div>
-              
-              <div className='text-base sm:text-lg leading-relaxed'>
+
+              <div className='text-base sm:text-lg leading-relaxed pt-20'>
                 <p>{news.content}</p>
               </div>
             </div>
@@ -50,13 +50,14 @@ export const New = () => {
             <div className='w-1/4'>
               {/* Aquí puedes colocar tu banner o contenido lateral */}
               {/* Ejemplo de un banner ficticio */}
-              <NewContainer/>
+              <NewContainer />
             </div>
           </div>
 
 
-
-          <ArticlesContainer />
+          <div className="pt-20">
+            <ArticlesContainer />
+          </div>
 
         </div>
       ) : <p>Loading news...</p>}
