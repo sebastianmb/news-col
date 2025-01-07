@@ -11,7 +11,7 @@ export const MainArticle = () => {
   const [id, setId] = useState(null);
   const global = "http://127.0.0.1:8000/media/"
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/noticias/12')
+    fetch('http://127.0.0.1:8000/api/noticias/1')
       .then((response) => response.json())
       .then((data) => {
         // Establecer el título de la noticia en el estado
@@ -33,13 +33,13 @@ export const MainArticle = () => {
 
     <section className='mb-12'>
       {newsInfo && newsInfo.image && (
-        <div>
+        <div >
 
           <picture>
             <source media="(max-width: 640px)" srcSet={newsInfo.get_image_url} />
             <source media="(min-width: 641px)" srcSet={newsInfo.get_image_url} />
 
-            <img src={global + newsInfo.image} alt='Articulo principal imagen' />
+            <img src={global + newsInfo.image} alt='Articulo principal imagen' className='w-full max-h-80 object-cover' />
 
           </picture>
 

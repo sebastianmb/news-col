@@ -9,20 +9,23 @@ export function Home() {
 
 
 
-  
+
   return (
-   
-      <main className="px-4 pt-6 lg:px-8">
 
-        <Header />
-        <div className="lg:flex lg:gap-8">
+    <main className="px-4 pt-6 lg:px-8">
+
+      <Header />
+      <div className="lg:flex lg:gap-8">
+        <div className="flex-1">
           <MainArticle />
-          <NewContainer />
-
         </div>
-        <ArticlesContainer />
-      </main>
-   
+        <div className="flex-none lg:w-1/3">
+          <NewContainer />
+        </div>
+      </div>
+      <ArticlesContainer />
+    </main>
+
   )
 }
 
