@@ -27,7 +27,19 @@ export const MainArticle = () => {
       });
   }, []);
 
+  const renderTextWithSemibold = (text, length) => {
+    if (text.length <= length) {
+      return <span className="font-semibold">{text}</span>;
+    }
+    return (
+      <>
+        <span className="font-semibold">{text.slice(0, length)}</span>
+        {text.slice(length)}
+      </>
+    );
+  };
 
+  
 
   return (
 
@@ -52,6 +64,11 @@ export const MainArticle = () => {
                 {newsInfo.content.length > 200
                   ? `${newsInfo.content.slice(0, 200)}...`
                   : newsInfo.content}
+              </p>
+              <p className="text-[13px] mb-10 sm:text-[15px] sm:max-w-[340px] overflow-hidden">
+                {newsInfo.titulo_leccion_gramatica.length > 120
+                  ? renderTextWithSemibold(`${newsInfo.titulo_leccion_gramatica.slice(0, 120)}...`, 17)
+                  : renderTextWithSemibold(newsInfo.titulo_leccion_gramatica, 17)}
               </p>
               <button
                 className="bg-SoftRed w-[185px] h-[48px] uppercase text-OffWhite hover:bg-VeryDarkBlue"
