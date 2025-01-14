@@ -38,6 +38,7 @@ export const ArticlesContainer = () => {
                 <Article
                     key={index} // Agrega una key única para cada elemento
                     img={article.image}
+                    id={article.id}
                     number={index + 1}
                     title={article.title}
                     text={article.content}

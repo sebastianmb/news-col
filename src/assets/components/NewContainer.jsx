@@ -29,7 +29,7 @@ export const NewContainer = () => {
 
   return (
     <div>
-      <aside className="bg-VeryDarkBlue text-OffWhite py-[28px] px-[20px]">
+      <aside className="bg-VeryDarkBlue text-OffWhite py-[28px] px-[20px] ">
         <h1 className="text-SoftOrange text-4xl font-bold">New</h1>
         {newsInfo && newsInfo.map((newsItem, index) => (
           <NewArticle

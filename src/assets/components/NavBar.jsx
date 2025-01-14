@@ -9,6 +9,7 @@ export const NavBar = () => {
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);
     };
+    
 
     return (
         <>
@@ -19,7 +20,7 @@ export const NavBar = () => {
                 <li>
                     <NavLink to="/new">New</NavLink>
                 </li>
-                
+
                 <li>
                     <button onClick={toggleMenu}>Categorias</button>
                     {menuVisible && (
@@ -32,7 +33,21 @@ export const NavBar = () => {
                 </li>
 
             </ul>
-            <img className='w-10 h4 cursor-pointer sm:hidden' src={Menu} alt="Menu" />
+
+            <button className="sm:hidden" onClick={toggleMenu}>
+                <img
+                    className="w-10 h-4 cursor-pointer"
+                    src={Menu}
+                    alt="Menu"
+                />
+                {menuVisible && (
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li><NavLink to="/new">New</NavLink></li>
+                            
+                        </ul>
+                    )}
+            </button>
             <Outlet />
         </>
     )
