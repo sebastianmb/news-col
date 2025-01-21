@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Article } from "./Article"
-import img1 from "../images/image-retro-pcs.jpg"
-import img2 from "../images/image-top-laptops.jpg"
-import img3 from "../images/image-gaming-growth.jpg"
 
 
 
 
-export const ArticlesContainer = () => {
+
+export const ArticlesContainer = ({limit=3}) => {
     const [newsInfo, setNewsInfo] = useState(null);
 
 
@@ -19,11 +17,11 @@ export const ArticlesContainer = () => {
                 const randomIndexes = Array.from({ length: data.noticias.length }, (_, i) => i).sort(() => Math.random() - 0.5);
 
                 // Obtener las tres noticias con los índices aleatorios
-                const randomThreeNews = randomIndexes.slice(0, 3).map((index) => data.noticias[index]);
+                const randomThreeNews = randomIndexes.slice(0, limit).map((index) => data.noticias[index]);
 
                 // Establecer el estado con las tres noticias aleatorias
                 setNewsInfo(randomThreeNews);
-                console.log(newsInfo)
+                
             })
             .catch((error) => {
                 console.error('Error al obtener la noticia:', error);
@@ -42,6 +40,7 @@ export const ArticlesContainer = () => {
                     number={index + 1}
                     title={article.title}
                     text={article.content}
+                    isLarge={index % 5 === 0} 
                 />
             ))}
         </section>

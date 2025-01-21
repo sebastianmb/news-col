@@ -23,7 +23,7 @@ export function Home() {
           <NewContainer />
         </div>
       </div>
-      <ArticlesContainer />
+      <ArticlesContainer/>
     </main>
 
   )

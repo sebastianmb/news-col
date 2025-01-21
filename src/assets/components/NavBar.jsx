@@ -22,7 +22,7 @@ export const NavBar = () => {
                 </li>
 
                 <li>
-                    <NavLink to="explore-news">Explore News</NavLink>
+                    <NavLink to="/explore-news">Explore News</NavLink>
                  
                 </li>
 
