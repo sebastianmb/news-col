@@ -22,14 +22,8 @@ export const NavBar = () => {
                 </li>
 
                 <li>
-                    <button onClick={toggleMenu}>Categorias</button>
-                    {menuVisible && (
-                        <ul>
-                            <li>Opción 1</li>
-                            <li>Opción 2</li>
-                            <li>Opción 3</li>
-                        </ul>
-                    )}
+                    <NavLink to="explore-news">Explore News</NavLink>
+                 
                 </li>
 
             </ul>

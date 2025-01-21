@@ -12,11 +12,19 @@ export const NewContainer = () => {
     fetch('http://127.0.0.1:8000/api/noticias/')
       .then((response) => response.json())
       .then((data) => {
-        // Ordenar las noticias de forma descendente por la fecha de creación (asumiendo que existe un campo "created_at")
-        const sortedNews = data.noticias.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
+        
+        if (!data.noticias || !Array.isArray(data.noticias)) {
+          console.error("Estructura de datos incorrecta:", data);
+          return;
+        }
+  
+        // Hacer una copia del array antes de ordenarlo
+        const sortedNews = [...data.noticias].sort((a, b) => 
+          new Date(b.published_date).getTime() - new Date(a.published_date).getTime()
+        );
         // Obtener solo las tres noticias más recientes
         const latestThreeNews = sortedNews.slice(0, 3);
+        
 
         // Establecer el estado con las tres noticias recientes
         setNewsInfo(latestThreeNews);
