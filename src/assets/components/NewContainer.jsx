@@ -38,7 +38,9 @@ export const NewContainer = () => {
   return (
     <div>
       <aside className="bg-VeryDarkBlue text-OffWhite py-[28px] px-[20px] ">
-        <h1 className="text-SoftOrange text-4xl font-bold">New</h1>
+        <h2 className="text-SoftOrange text-4xl font-bold">Latest News and Updates </h2>
+        <meta name="description" content="Stay updated with the latest news in English. Get breaking news, trending topics, and global updates in real-time. Read now!"></meta>
+        
         {newsInfo && newsInfo.map((newsItem, index) => (
           <NewArticle
             key={index}

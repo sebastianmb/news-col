@@ -62,7 +62,7 @@ export const New = () => {
         <div >
           <div className="lg:flex lg:gap-8">
             <div className="lg:w-3/5">
-              <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-6 p-4">{news.title}</h1>
+              <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6 p-4">{news.title}</h2>
               <div className="mb-6">
                 {news.audio && (
                   <div className="my-6">
