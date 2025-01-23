@@ -7,9 +7,9 @@ export const NewContainer = () => {
 
   const [newsInfo, setNewsInfo] = useState(null);
  
-  const global = "http://127.0.0.1:8000/media/"
+  const global = "https://new-colback.onrender.com/media/"
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/noticias/')
+    fetch('https://new-colback.onrender.com/api/noticias/')
       .then((response) => response.json())
       .then((data) => {
         

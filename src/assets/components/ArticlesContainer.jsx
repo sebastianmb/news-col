@@ -10,7 +10,7 @@ export const ArticlesContainer = ({limit=3}) => {
 
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/noticias/')
+        fetch('https://new-colback.onrender.com/api/noticias/')
             .then((response) => response.json())
             .then((data) => {
                 // Obtener un array con índices aleatorios de las noticias

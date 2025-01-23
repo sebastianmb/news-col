@@ -12,18 +12,18 @@ export const New = () => {
 
   const { id } = useParams();
 
-  const global = "http://127.0.0.1:8000/media/"
+  const global = "https://new-colback.onrender.com/media/"
   useEffect(() => {
     const fetchNews = async () => {
       try {
         let response;
         if (id) {
-          response = await fetch(`http://127.0.0.1:8000/api/noticias/${id}`);
+          response = await fetch(`https://new-colback.onrender.com/api/noticias/${id}`);
         } else {
-          response = await fetch(`http://127.0.0.1:8000/api/noticias/reciente`);
+          response = await fetch(`https://new-colback.onrender.com/api/noticias/reciente`);
           const data = await response.json();
           const recentId = data.noticia.id;
-          response = await fetch(`http://127.0.0.1:8000/api/noticias/${recentId}`);
+          response = await fetch(`https://new-colback.onrender.com/api/noticias/${recentId}`);
         }
         const data = await response.json();
         setNews(data.noticia);

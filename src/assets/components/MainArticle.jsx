@@ -9,23 +9,35 @@ export const MainArticle = () => {
 
   const [newsInfo, setNewsInfo] = useState(null);
   const [id, setId] = useState(null);
-  const global = "http://127.0.0.1:8000/media/"
+  const global = "https://new-colback.onrender.com/media/"
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/noticias/1')
-      .then((response) => response.json())
-      .then((data) => {
-        // Establecer el título de la noticia en el estado
-        setNewsInfo(data.noticia);
-        setId(data.noticia.id);
-        //console.error('Se llega hasta la noticia:', data.noticia.content);
+    const fetchLatestNews = async () => {
+      try {
+        const response = await fetch('https://new-colback.onrender.com/api/noticias');
+        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
+        const data = await response.json();
+        
+        if (Array.isArray(data.noticias) && data.noticias.length > 0) {
+          // Encontrar la noticia con el ID más alto
+          const latestNews = data.noticias.reduce((max, noticia) => 
+            noticia.id > max.id ? noticia : max
+          );
 
-
-      })
-      .catch((error) => {
+          setNewsInfo(latestNews);
+          setId(latestNews.id);
+        } else {
+          console.warn('No hay noticias disponibles.');
+        }
+      } catch (error) {
         console.error('Error al obtener la noticia:', error);
-      });
+      }
+    };
+
+    fetchLatestNews();
   }, []);
+
+  
 
   const renderTextWithSemibold = (text, length) => {
     if (text.length <= length) {
