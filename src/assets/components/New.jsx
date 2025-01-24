@@ -55,7 +55,7 @@ export const New = () => {
     : [];
 */
   return (
-    <main className="px-24 pt-6">
+    <main className="px-4 pt-6">
 
       <Header />
       {news ? (
