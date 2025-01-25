@@ -13,7 +13,7 @@ export const MainArticle = () => {
   useEffect(() => {
     const fetchLatestNews = async () => {
       try {
-        const response = await fetch('https://new-colback.onrender.com/api/noticias');
+        const response = await fetch('https://new-colback.onrender.com/api/noticias/');
         if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
         const data = await response.json();
