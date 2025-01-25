@@ -12,7 +12,7 @@ export const New = () => {
 
   const { id } = useParams();
 
-  const global = "https://new-colback.onrender.com/media/"
+ 
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -47,13 +47,7 @@ export const New = () => {
     return <p>Loading...</p>;
   }
 
-  //Convertir descripcion_gramatica en una lista solo si news no es null
-  /*const descripcionGramaticaList = news.descripcion_gramatica
-    ? news.descripcion_gramatica.split('\n').map((item, index) => (
-      <li key={index}>{item.trim()}</li>
-    ))
-    : [];
-*/
+
   return (
     <main className="px-4 pt-6">
 
@@ -72,7 +66,7 @@ export const New = () => {
                     </audio>
                   </div>
                 )}
-                <img className="w-full pt-8 max-h-[700px] object-cover" src={global + news.image} alt="Articulo principal imagen" />
+                <img className="w-full pt-8 max-h-[700px] object-cover" src={news.imagen} alt="Articulo principal imagen" />
               </div>
 
 

@@ -12,7 +12,7 @@ export const ExploreNews = () => {
 
   const { id } = useParams();
 
-  const global = "https://new-colback.onrender.com/media/"
+  
   useEffect(() => {
     const fetchNews = async () => {
       try {

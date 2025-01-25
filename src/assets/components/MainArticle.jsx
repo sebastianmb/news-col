@@ -9,7 +9,7 @@ export const MainArticle = () => {
 
   const [newsInfo, setNewsInfo] = useState(null);
   const [id, setId] = useState(null);
-  const global = "https://new-colback.onrender.com/media/"
+  
   useEffect(() => {
     const fetchLatestNews = async () => {
       try {
@@ -17,6 +17,8 @@ export const MainArticle = () => {
         if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
         const data = await response.json();
+        
+
         
         if (Array.isArray(data.noticias) && data.noticias.length > 0) {
           // Encontrar la noticia con el ID más alto
@@ -56,14 +58,14 @@ export const MainArticle = () => {
   return (
 
     <section className='mb-12'>
-      {newsInfo && newsInfo.image && (
+      {newsInfo && newsInfo.imagen && (
         <div >
 
           <picture>
-            <source media="(max-width: 640px)" srcSet={newsInfo.get_image_url} />
-            <source media="(min-width: 641px)" srcSet={newsInfo.get_image_url} />
+            <source media="(max-width: 640px)" srcSet={newsInfo.imagen} />
+            <source media="(min-width: 641px)" srcSet={newsInfo.imagen} />
 
-            <img src={global + newsInfo.image} alt='Articulo principal imagen' className='w-full max-h-80 object-cover' />
+            <img src={newsInfo.imagen} alt='Articulo principal imagen' className='w-full max-h-80 object-cover' />
 
           </picture>
 

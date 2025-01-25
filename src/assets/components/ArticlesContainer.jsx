@@ -35,7 +35,7 @@ export const ArticlesContainer = ({limit=3}) => {
             {newsInfo && newsInfo.map((article, index) => (
                 <Article
                     key={index} // Agrega una key única para cada elemento
-                    img={article.image}
+                    img={article.imagen}
                     id={article.id}
                     number={index + 1}
                     title={article.title}

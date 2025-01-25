@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 export const Article = ({ img, number, title, text, id, isLarge }) => {
 
-  const global = "http://127.0.0.1:8000/media/"
-
+  
+console.log("contenido img: ", img)
 
   return (
 
     <article className={`flex h-[182px] w-[343px] md:w-[343px] lg:${isLarge ? "h-[300px] w-[500px]" : "h-[182px] w-[343px]"} md:flex-grow`}>
       <div className={`w-[100px] lg:${isLarge ? "w-[300px]" : "w-[100px]"} flex-none`}>
 
-        <img src={global + img} alt="" />
+        <img src={img} alt="" />
       </div>
       <div className="pl-6">
         <p className="text-GrayishBlue text-3xl mb-[18px] font-bold">{number}</p>
