@@ -11,7 +11,7 @@ export const New = () => {
   const audioRef = useRef(null); // Referencia para el audio
 
   const { id } = useParams();
-
+  const global=`https://new-colback.onrender.com/media/`
  
   useEffect(() => {
     const fetchNews = async () => {

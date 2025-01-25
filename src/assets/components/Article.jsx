@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const Article = ({ img, number, title, text, id, isLarge }) => {
 
   
-console.log("contenido img: ", img)
+
 
   return (
 
