@@ -1,7 +1,7 @@
 import { Header } from "./Header"
 import { ArticlesContainer } from "./ArticlesContainer"
 import { NewContainer } from "./NewContainer";
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 export const New = () => {
@@ -11,8 +11,10 @@ export const New = () => {
   const audioRef = useRef(null); // Referencia para el audio
 
   const { id } = useParams();
-  const global=`https://new-colback.onrender.com/media/`
- 
+  const global = `https://new-colback.onrender.com/media/`
+
+  const [audio, setAudio] = useState('');
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -26,7 +28,17 @@ export const New = () => {
           response = await fetch(`https://new-colback.onrender.com/api/noticias/${recentId}`);
         }
         const data = await response.json();
+        
         setNews(data.noticia);
+        // Obtener la URL del audio
+        let audioUrl = data.noticia.audio;
+
+        // Verificar si el audio existe y reemplazar la parte de la URL
+        if (audioUrl) {
+          audioUrl = audioUrl.replace("image/upload", "raw/upload");
+          setAudio(audioUrl);
+        }
+        
         setLoading(false);
         console.error('Se conecta la noticia componente New:', id || 'reciente');
         // Reiniciar el audio cuando se carga una nueva noticia
@@ -61,7 +73,7 @@ export const New = () => {
                 {news.audio && (
                   <div className="my-6">
                     <audio key={news.audio} ref={audioRef} controls>
-                      <source src={global + news.audio} type="audio/mpeg" />
+                      <source src={audio} type="audio/mpeg" />
                       Your browser does not support the audio element.
                     </audio>
                   </div>
